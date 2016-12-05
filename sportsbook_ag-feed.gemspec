@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = SportsbookAg::Feed::VERSION
   s.authors     = ["Dave Nguyen"]
   s.email       = ["Dave.Nguyen@inthenight.net"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of SportsbookAg::Feed."
-  s.description = "TODO: Description of SportsbookAg::Feed."
+  s.homepage    = "https://github.com/davenguyen/sportsbook_ag-feed"
+  s.summary     = "Get sports odds from Sportsbook.ag."
+  s.description = "Get sports odds from Sportsbook.ag."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
