@@ -24,10 +24,11 @@ end
 
 %w(nfl).each do |type|
   define_method("#{type}") do |local_file = true|
-    return if instance_variable_defined?("@#{type}")
+    v = "@#{type}"
+    return instance_variable_get(v) if instance_variable_defined?(v)
 
     klass = "sportsbook_ag/feed/#{type}".classify.constantize
     path = local_file ? file_path(klass::FEED_NAME) : nil
-    instance_variable_set("@#{type}", klass.new(path))
+    instance_variable_set(v, klass.new(path))
   end
 end
