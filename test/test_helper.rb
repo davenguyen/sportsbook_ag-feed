@@ -17,3 +17,17 @@ if ActiveSupport::TestCase.respond_to?(:fixture_path=)
   ActiveSupport::TestCase.file_fixture_path = ActiveSupport::TestCase.fixture_path + "/files"
   ActiveSupport::TestCase.fixtures :all
 end
+
+def file_path(name)
+  Rails.root.join('test', 'files', "#{name}.xml").to_s
+end
+
+%w(nfl).each do |type|
+  define_method("#{type}") do |local_file = true|
+    return if instance_variable_defined?("@#{type}")
+
+    klass = "sportsbook_ag/feed/#{type}".classify.constantize
+    path = local_file ? file_path(klass::FEED_NAME) : nil
+    instance_variable_set("@#{type}", klass.new(path))
+  end
+end
