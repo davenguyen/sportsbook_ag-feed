@@ -37,10 +37,6 @@ module SportsbookAg
         @under = Line.new(:total, under[2][1...-1].to_i, @total)
       end
 
-      def parse_moneyline(element)
-
-      end
-
       def parse_spread(element)
         spread = element.text.split(' ')
         Line.new(:spread, spread.last[1...-1].to_i, spread.first.to_d)
