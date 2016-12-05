@@ -7,6 +7,9 @@ class SportsbookAg::Feed::Test < ActiveSupport::TestCase
 
   test 'loads odds for a game' do
     game = nfl.games.first
+
+    assert_kind_of DateTime, game.time
+
     assert_equal game.home, 'Jacksonville Jaguars'
     assert_equal game.visitor, 'Denver Broncos'
 
